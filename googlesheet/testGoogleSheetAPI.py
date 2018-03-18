@@ -5,12 +5,12 @@ Created on 2018年3月13日
 
 from __future__ import print_function
 
+import json
 from googlesheet.googlesheetUtils import buildService
 
 
 def main():
-    service = buildService()
-
+    service = buildService
     spreadsheetId = "1033HVmaLyxYkfiX889L5J4ypBuw9xvowotKGPtXWRV0"
     
     include_grid_data = False  # TODO: Update placeholder value.
@@ -18,15 +18,7 @@ def main():
     request = service.spreadsheets().get(spreadsheetId=spreadsheetId, ranges=ranges, includeGridData=include_grid_data)
     response = request.execute()
     print(response)
-
-
-#     rangeName = "T00"
-#     
-#     result = service.spreadsheets().values().get(spreadsheetId=spreadsheetId, range=rangeName).execute()
-#     values = result.get('values', [])
-#  
-#     for row in values:
-#         print(row)
+    print("%s" %(json.dumps(response, indent=4)))
 
 
 if __name__ == '__main__':

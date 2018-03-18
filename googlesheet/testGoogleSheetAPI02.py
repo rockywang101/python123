@@ -67,11 +67,6 @@ def main():
         for row in reader:
             values.append(row)
 
-#     values = [
-#         [1, 3, "ABC"],
-#         [2, 4, "Rox"]
-#     ]
-    
     spreadsheetId = "1CxCM_fOzFAySeg7pDs5g0SPCHOkxJFGQaisru3iC6Lw"
     rangeName = "TEST"
     service.spreadsheets().values().clear(spreadsheetId=spreadsheetId, range=rangeName, body={}).execute()

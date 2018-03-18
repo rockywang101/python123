@@ -54,3 +54,26 @@ def buildService():
     discoveryUrl = ('https://sheets.googleapis.com/$discovery/rest?version=v4')
     service = discovery.build('sheets', 'v4', http=http, discoveryServiceUrl=discoveryUrl)
     return service
+
+
+''' add a new sheet and return sheetId '''
+def addSheet(spreadsheetId, title):
+    service = buildService()
+    body = {
+      "requests": [
+            {
+                "addSheet": {
+                    "properties": {
+                        "title": title,
+                    }
+                }
+            }
+        ]
+    }
+    request = service.spreadsheets().batchUpdate(spreadsheetId=spreadsheetId, body=body)
+    response = request.execute()
+    return response["replies"][0]["addSheet"]["properties"]["sheetId"]
+
+    
+
+
