@@ -10,7 +10,7 @@ from googlesheet.googlesheetUtils import buildService
 
 
 def main():
-    service = buildService
+    service = buildService()
     spreadsheetId = "1033HVmaLyxYkfiX889L5J4ypBuw9xvowotKGPtXWRV0"
     
     include_grid_data = False  # TODO: Update placeholder value.

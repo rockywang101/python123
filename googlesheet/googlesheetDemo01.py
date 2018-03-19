@@ -4,11 +4,11 @@ Read data from Google Sheet
 Created on 2018年3月16日
 @author: rocky.wang
 '''
-from googlesheet.googlesheetUtils import initService
+from googlesheet.googlesheetUtils import buildService
 
 def main():
     
-    service = initService()
+    service = buildService()
 
     spreadsheetId = "1CxCM_fOzFAySeg7pDs5g0SPCHOkxJFGQaisru3iC6Lw"
     rangeName = "TEST"

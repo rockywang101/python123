@@ -110,13 +110,18 @@ class GooglesheetService():
             "values" : rowList
         }
         result = self.service.spreadsheets().values().append(spreadsheetId=self.spreadsheetId, range=rangeName, valueInputOption="RAW", body=body).execute()
-        print('{0} cells updated.'.format(result.get('updatedCells')));
-        
-        print("%s" %(json.dumps(result, indent=4)))
+#         print('{0} cells updated.'.format(result.get('updatedCells')));
+#         print("%s" %(json.dumps(result, indent=4)))
     
     
     def clearSheet(self, rangeName):
         self.service.spreadsheets().values().clear(spreadsheetId=self.spreadsheetId, range=rangeName, body={}).execute()
+    
+    
+    def getValues(self, rangeName):
+        result = self.service.spreadsheets().values().get(spreadsheetId=self.spreadsheetId, range=rangeName).execute()
+        return result.get('values', [])
+    
     
     # TODO get all sheet datas
     
