@@ -5,15 +5,17 @@
 Created on 2018年3月13日
 @author: Rocky
 '''
-
+import csv
 from __future__ import print_function
 
-from googlesheet.googlesheetUtils import buildServicinitServicev
+from googlesheet.googlesheetUtils import buildService
 
 
 def main():
+    spreadsheetId = "1033HVmaLyxYkfiX889L5J4ypBuw9xvowotKGPtXWRV0"
     
-    service = buildServicinitServicepreadsheetId = "1033HVmaLyxYkfiX889L5J4ypBuw9xvowotKGPtXWRV0"
+    service = buildService()
+    
     rangeName = "0050"
     
     header = ["日期","開盤指數","最高指數","最低指數","收盤指數", "RSV", "K9"]
