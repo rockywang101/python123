@@ -22,7 +22,6 @@ print(match)
 
 
 # 任意字元 .
-
 pattern = r'a.man'
 string = "I'm a man"
 match = re.findall(pattern, string)
@@ -35,7 +34,6 @@ print(match)
 
 
 # 多個字元
-
 pattern = r'[aA]'
 string = "A apple"
 match = re.findall(pattern, string)
@@ -47,7 +45,6 @@ match = re.findall(pattern, string)
 print(match)
 
 # 多個字元 - 連續
-
 pattern = r'[a-z]' # 等同 [abcdefghijklmnopqrstuvwxyz]
 string = "There is a apple"
 match = re.findall(pattern, string)
@@ -63,12 +60,13 @@ string = "0980987163"
 match = re.findall(pattern, string)
 print(match)
 
-# 多個字元 - 不是
-
-pattern = r'[^a]' # 等同 [abcdefghijklmnopqrstuvwxyz]
-string = "There is a apple"
+# 多個字元 - ^ 不是 xx
+pattern = r'[^a]' # not a 的其他字元
+string = "There is a Apple 123"
 match = re.findall(pattern, string)
+print("------------------")
 print(match)
+print("------------------")
 
 pattern = r'[^0-9]'
 string = "I'am 20 years old."
@@ -105,3 +103,12 @@ string = "1+2=3"
 pattern = r'\D' # 等同 r'[^\d]'
 match = re.findall(pattern, string)
 print(match)
+
+pattern = r'android|and' # 最正確的版本，比較精準的放前面，注意不要有空白
+string = "iOS and android"
+match = re.findall(pattern, string)
+print(match)
+
+
+
+
