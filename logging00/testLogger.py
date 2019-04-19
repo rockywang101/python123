@@ -4,9 +4,10 @@ Created on 2019年4月18日
 '''
 import logging
 import os
-from logging.handlers import TimedRotatingFileHandler
+from logging.handlers import TimedRotatingFileHandler, SMTPHandler
 import time
-from logging00.submodule import pp
+import logging00.submodule as submodule
+import traceback
 
 
 def initLogger():
@@ -28,25 +29,38 @@ def initLogger():
 	infoFileHandler.setFormatter(formatter)
 	infoFileHandler.setLevel(logging.DEBUG)
 	logger.addHandler(infoFileHandler)
-
+	
+	fromaddr = 'no-reply@ehsn.com.tw'
+	toaddrs = ['rocky.wang@ehsn.com.tw']
+	subject = 'System Error From Logging'
+	smtpHandler = SMTPHandler('mail01.etzone.net', fromaddr, toaddrs, subject)
+	smtpHandler.setFormatter(formatter)
+	smtpHandler.setLevel(logging.ERROR)
+	logger.addHandler(smtpHandler)
+	
+	return logger
 
 def main():
-	initLogger()
+	try:
+		logger = initLogger()
 	
-	process()
-	
-	pp()
+		submodule.pp()
+		
+		process()
+	except:
+		logger.error(traceback.format_exc())
 	
 	
 def process():
 	logger = logging.getLogger(__name__)
 	
-	for i in range(3):
-		print("print", i)
-		logger.debug("debug " + str(i))
-		logger.info("info " + str(i))
-		time.sleep(0.5)
-
+	logger.debug("debug in main")
+	logger.info("info in main")
+	
+	submodule.causeError()
+	
 
 if __name__ == "__main__":
 	main()
+		
+		
