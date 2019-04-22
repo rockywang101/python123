@@ -5,7 +5,6 @@ Created on 2019年4月18日
 import logging
 import os
 from logging.handlers import TimedRotatingFileHandler, SMTPHandler
-import time
 import logging00.submodule as submodule
 import traceback
 

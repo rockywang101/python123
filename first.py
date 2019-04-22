@@ -1,23 +1,6 @@
-'''
-Created on 2018年3月9日
-@author: rocky.wang
-'''
-import os
+s = "親愛的 王志宏 讀者 您好： (借閱證號FAF049458) 您預約的書已到館，請於最後取書日前圖書館服務時間內至指定取書之圖書館來借閱取書，謝謝！ 書 名 索書號 登錄號 取書館 保留日期 Docker這樣學才有趣 : 從入門, 到玩直播、挖礦 / 余嘉適, 施緯誠著臺北市 : 松崗資產管理, 2017.11 初版 312.54 8546 A2262881 中和分館[OC] 2019/03/09"
+i = s.index("保留日期")
 
-def hello(token, ar1):
-    pass
+print(i)
 
-
-
-with open("c:\\users\\eit\\downloads\\3.20-21.txt") as f1:
-    lines = f1.read().splitlines()
-    
-print(len(lines))
-
-msg = ""
-for line in lines:
-    msg += line + ", "
-
-print(msg)
-    
-        
+print(s[i+5:])
