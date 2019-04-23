@@ -3,6 +3,7 @@ Created on 2019年4月24日
 @author: rocky
 '''
 import logging.handlers
+import traceback
  
 class TlsSMTPHandler(logging.handlers.SMTPHandler):
     def emit(self, record):
@@ -13,29 +14,27 @@ class TlsSMTPHandler(logging.handlers.SMTPHandler):
         """
         try:
             import smtplib
-            import string # for tls add this line
             try:
                 from email.utils import formatdate
             except ImportError:
                 formatdate = self.date_time
-            port = self.mailport
-            if not port:
-                port = smtplib.SMTP_PORT
-            smtp = smtplib.SMTP(self.mailhost, port)
+            
             msg = self.format(record)
             msg = "From: %s\r\nTo: %s\r\nSubject: %s\r\nDate: %s\r\n\r\n%s" % (
                             self.fromaddr,
-                            string.join(self.toaddrs, ","),
+                            ','.join(self.toaddrs),
                             self.getSubject(record),
                             formatdate(), msg)
-            if self.username:
-                smtp.ehlo() # for tls add this line
-                smtp.starttls() # for tls add this line
-                smtp.ehlo() # for tls add this line
-                smtp.login(self.username, self.password)
+            
+            smtp = smtplib.SMTP(self.mailhost, self.mailport)            
+            smtp.ehlo() # for tls add this line
+            smtp.starttls() # for tls add this line
+            smtp.ehlo() # for tls add this line
+            smtp.login(self.username, self.password)
             smtp.sendmail(self.fromaddr, self.toaddrs, msg)
             smtp.quit()
         except (KeyboardInterrupt, SystemExit):
             raise
         except:
+            traceback.print_exc()
             self.handleError(record)

@@ -18,13 +18,14 @@ handlers:
     backupCount: 3
     encoding: utf-8
   mail:
-    class: logging.handlers.ThreadedTlsSMTPHandler
-    mailhost: ('smtp.gmail.com', 587)
+    class: logging02.TlsSMTPHandler.TlsSMTPHandler
+    mailhost: ['smtp.gmail.com', 587]
     fromaddr: rockywang101@gmail.com
     toaddrs: 
+      - rockywang101@gmail.com
       - rocky.wang@ehsn.com.tw
     subject: Error Occur
-    credentials: ('rockywang101@gmail.com', 'xxx') 
+    credentials: ['rockywang101@gmail.com', 'yourpassword']
     formatter: simple
     level: ERROR
     

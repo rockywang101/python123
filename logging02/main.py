@@ -1,5 +1,8 @@
 '''
-try gmail logging, not completed
+gmail logging
+
+pyyaml 似乎不支援 tuple，所以在 loggin.yml 檔裡 mailhost 與 credentials 都要特別寫成 list 的型態才能在 init 的時候正確被解析出值g
+
 
 Created on 2019年4月23日
 @author: rocky
