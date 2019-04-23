@@ -1,11 +1,11 @@
 '''
+try gmail logging, not completed
+
 Created on 2019年4月23日
 @author: rocky
 '''
 import logging.config
 import yaml
-from logging01.service01 import dosomething
-from logging01.sub.subservice01 import sayHello, happyError
 
 logging.config.dictConfig(yaml.load(open('logging.yml', 'r'), Loader=yaml.FullLoader))
 
@@ -16,12 +16,8 @@ logger.warning('warn message')
 # logger.error('error message')
 # logger.critical('critical message')
 
-dosomething()
-
-sayHello('John')
-
 try:
-	happyError()
+	5 / 0
 except:
 	logger.exception("Exception occurred")
 

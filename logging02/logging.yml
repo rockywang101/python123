@@ -14,20 +14,20 @@ handlers:
     formatter: simple
     filename: test.log
     when: S
+    interval: 1
     backupCount: 3
     encoding: utf-8
-    
   mail:
-    class: logging.handlers.SMTPHandler
-    mailhost: mail01.etzone.net
-    fromaddr: no-reply@ehsn.com.tw
+    class: logging.handlers.ThreadedTlsSMTPHandler
+    mailhost: ('smtp.gmail.com', 587)
+    fromaddr: rockywang101@gmail.com
     toaddrs: 
       - rocky.wang@ehsn.com.tw
-    subject: Error on OB DataSync  
+    subject: Error Occur
+    credentials: ('rockywang101@gmail.com', 'xxx') 
     formatter: simple
     level: ERROR
     
 root:
   level: DEBUG
-  handlers: [console, file]
-  
+  handlers: [console, file, mail]
