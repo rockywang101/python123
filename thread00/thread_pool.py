@@ -14,7 +14,7 @@ def doSomething(name):
         sleep(n)
         print(f"{name}  {n}")
         if n == 2:
-            return name + " fail"
+            return name + " fail" # 遇到 2 當 fail
     
     return name + " success"
         
@@ -31,4 +31,4 @@ with concurrent.futures.ThreadPoolExecutor() as executor:
     print(returnB)
     print(returnC)
 
-print("completed")
+print("completed.")
