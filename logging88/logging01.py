@@ -3,7 +3,6 @@ Created on 2019年4月19日
 @author: rocky
 '''
 import logging
-import datetime
 
 def initLogger():
 	

@@ -1,0 +1,10 @@
+a:
+  b: new abbb
+  d:
+    y: new inner adyyy
+    
+xyz: 123
+vvv:
+   uuu: 456
+   ccc: 789
+  
