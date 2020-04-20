@@ -24,7 +24,7 @@ def main():
 def readOrFetch():
     if (os.path.isfile(filename)):
         print("file exist, read json data from file")
-        with open(filename) as f:
+        with open(filename, encoding="utf-8") as f:
             js = json.load(f)
     else:
         print("file not exist, fetch from tpex website")
