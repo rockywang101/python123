@@ -1,4 +1,5 @@
 '''
+Demo how to use selenium to open python website
 
 1. download geckodriver.exe from https://github.com/mozilla/geckodriver/releases
 2. put it in a folder
