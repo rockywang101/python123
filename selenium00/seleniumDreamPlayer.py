@@ -14,18 +14,14 @@ import os
     
 def main():
     options = Options()
-    options.add_argument("--headless")
+#     options.add_argument("--headless")
     driver = webdriver.Chrome(options=options)
-    
-    # 有沒有 executable_path 都可以，這行應該是給沒設 path 的人，或是想指定的人用的
-    # driver = webdriver.Chrome(options=options, executable_path="C:\\geckodriver\\geckodriver.exe")
     
     doLogin(driver)
     
     topicList = fetchTopicList(driver)
     
     html = ""
-    
     for topic in topicList:
         print(topic)
         msgDataListResult = fetchTopicMessage(driver, topic)
@@ -44,6 +40,8 @@ def main():
             
     driver.close()
     driver.quit()
+    
+    print("completed")
     
 
 
@@ -64,6 +62,8 @@ def fetchTopicList(driver):
     retList = []
     # 溫國信文章列表
     driver.get("https://www.dreamplayer.tw/DreamPlayer/product.do?id=20191228105151825691")
+
+    pageDownToButtom(driver)
     
     soup = BeautifulSoup(driver.page_source, "html.parser")
     topicList = soup.find(id="list_sub").find_all("li")
@@ -74,14 +74,23 @@ def fetchTopicList(driver):
             
     return retList
 
+def pageDownToButtom(driver):
+    body = driver.find_element_by_css_selector('body')
+    
+    for i in range(3):
+        for j in range(6):
+            body.send_keys(Keys.PAGE_DOWN)
+        time.sleep(3)
+        
+    # 目前先這樣 hard code 次數，理想上是判斷往下後沒有新文章後再停止
 
 def fetchTopicMessage(driver, topic):
     title = topic[0].replace("?", "")
     link = "https://www.dreamplayer.tw" + topic[1]
     
-    if (os.path.isfile(f"{title}.html")):
+    if (os.path.isfile(f"data\{title}.html")):
         print("file exist, testing using, return direct")
-        with open(f"{title}.html", encoding="utf-8") as f:
+        with open(f"data\{title}.html", encoding="utf-8") as f:
             html = f.read()
             return parseHtml(html)
     
@@ -90,7 +99,7 @@ def fetchTopicMessage(driver, topic):
 
     driver.get(link)
     # 寫入以備後續使用
-    with open(f"{title}.html", "w", encoding="utf-8") as f1:
+    with open(f"data\{title}.html", "w", encoding="utf-8") as f1:
         f1.write(driver.page_source)
     
     print("sleep 3 seconds")
