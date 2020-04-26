@@ -52,7 +52,7 @@ def doLogin(driver):
     elem.send_keys("rswin0050@gmail.com")
     elem = driver.find_element_by_name("pwd")
     elem.clear()
-    elem.send_keys("Benice123forever")
+    elem.send_keys("")
     elem.send_keys(Keys.RETURN)
     
 
