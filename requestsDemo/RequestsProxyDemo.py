@@ -5,7 +5,7 @@ Created on 2020年5月4日
 import requests
 
 url = "http://httpbin.org/ip"
-proxy_host = "35.238.200.65"
+proxy_host = "40.121.195.213"
 proxy_port = "8080"
 proxy_auth = ":"
 proxies = {
