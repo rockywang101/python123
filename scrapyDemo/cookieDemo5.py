@@ -25,7 +25,7 @@ def main():
     driver.get("http://www.facebook.com")
     for cookie in cookies:
         print(cookie)
-        cookie['expiry'] = int(cookie['expiry'])
+        cookie['expiry'] = int(cookie['expiry']) # 遇到 invalid argument: invalid 'expiry' 問題，裡面有浮點數，幫它轉成 int 
         driver.add_cookie(cookie)
     
     driver.get("http://www.facebook.com")    
