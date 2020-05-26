@@ -1,0 +1,313 @@
+@charset "utf-8";
+/* CSS Document */
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+body, div, dl, dt, dd, ul, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+	padding:0;
+	margin:0;
+	border:none;
+	font:normal 16px/25px 'Noto Sans TC', "微軟正黑體", 'Arial Unicode MS', "sans-serif";
+	color:#434343;
+}
+body{ width:100%; height:100%;}
+table{ border-collapse: collapse; border-spacing:0;}
+ul, li{ list-style:none;}
+h1, h2, h3, h4, h5, h6{ font-weight:normal; font-size:100%;}
+a { text-decoration:none;}
+img {border:0; margin:0; padding:0; width:100%; display:block;}
+
+input[type="button"] {
+    -webkit-appearance: none;  /* Safari 和 Chrome，常用於iOS下移除內建樣式 */
+    -moz-appearance: none;     /* FireFox */
+    appearance: none;
+}
+
+.fL{float:left;}
+.fR{float:right;}
+.tL{text-align:left}
+.tR{text-align:right}
+.tC{text-align:center}
+.tB{ font-weight:bold;}
+.clr{clear:both;}
+.web{ display:block;}
+.mobile{ display:none;}
+
+/*頁面設定*/
+body.forFix{ padding-bottom: 90px; /*padding-bottom: 110px;*/}
+.fullpage{ width: 100%; min-width: 1000px;}
+.fullpage_line{ width: 100%; min-width: 1000px; border-bottom: 1px solid #e5e5e5;}
+.bg_gray1{ background-color: #eee;}
+.bg_gray2{ background-color: #ddd;}
+.bg_gray3{ background-color: #c9c9c9;}
+.bg_gray4{ background-color: #f6f6f6;}
+
+.pagesize{ width:1000px; margin:0 auto; padding: 0 10px; box-sizing:border-box;}
+
+/*checkbox*/
+input[type="checkbox"]{ display: none; appearance: none; outline:none; opacity: 0; }
+input[type="checkbox"] + span{ padding: 0 0 0 30px; line-height: 20px; vertical-align: middle; cursor: pointer; background: url(../images/icon_checkbox.jpg) left top no-repeat; background-size: 20px auto;}
+input[type="checkbox"]:checked + span{ background: url(../images/icon_checkbox.jpg) left bottom no-repeat; background-size: 20px auto; }
+
+/*radio*/
+input[type="radio"] { display:none; }
+input[type="radio"] + label{ display:inline-block;  padding-left:30px; box-sizing:border-box; cursor:pointer;}
+input[type="radio"] + label::before { content: ""; display: inline-block; position: absolute; top:2px; left:0; width:20px; height:20px;  background:url(../images/icon_radio.png) left top no-repeat; background-size:100% auto; }
+input[type="radio"]:checked + label::before{  background:url(../images/icon_radio.png) left bottom no-repeat; background-size:100% auto; }
+
+input[type="radio"] ~ input[type="text"] { width:calc(100% - 30px); margin: 15px 0 0 30px; }
+
+/*header*/
+.head{ width: 1000px; /*height: 86px;*/ height: 60px; margin: 0 auto; position: relative; /*padding: 0 150px 0 380px;*/ padding: 0 250px 0 350px; box-sizing: border-box; text-align: center; font-size: 18px;}
+.head h1{ /*width: 355px; height: 30px;*/ width: 285px; height: 35px; background: url(../images/logo.png) no-repeat; position: absolute;  top:50%; left:10px; margin-top: -15px;}
+.head h1 a{ width: 100%; height: 100%; display: block;}
+.head h1.post{ left: 50%; margin-left: -143px;}
+.head li{ display: inline-block; /*line-height: 80px;*/ line-height: 60px; font-size: 18px; margin-right: 25px;}
+.head li:last-child{ margin-right: 0;}
+.head li a{ color: #1b1b1b; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s;}
+.head li:hover a{ color: #5877b8;}
+
+.head .message{ width: 32px; height: 32px; background: url(../images/icon_message_02.png) no-repeat; position: absolute; top:50%; right:10px; margin-top: -16px;}
+.head .message .num { display: block; position: absolute; top: -3px; right: -5px; width: 20px; height: 20px; line-height: 20px; font-size: 13px; color: #fff; background: #ff3366; border-radius: 10px; }
+.head .login{ position: absolute; right:65px; top:0; /*line-height: 80px;*/ line-height: 60px; color: #1b1b1b;}
+.head .login .user{ /*line-height: 80px;*/ line-height: 60px; padding-right: 30px; background: url(../images/icon_down.png) no-repeat right center; background-size: 15px; position: relative;}
+.head .login .user .p_photo{ width: 35px; height: 35px; border-radius: 99em; overflow: hidden; margin-right: 15px; background-color: #aaa; display: inline-block; vertical-align: middle;}
+.head .login .user .p_photo img{ width: 100%; height: 100%;}
+.head .login a{ color: #1b1b1b; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s;}
+.head .login a:hover{ text-decoration: underline;}
+
+/*header選單*/
+.head .login .user .user_menu{ width: 150px; height: auto; border: 1px solid #cbcbcb; padding: 10px 0; box-sizing: border-box; background-color: #fff; background-size: 12px auto; z-index: 99; position: absolute; /*top:86px;*/ top:60px; box-shadow: 0px 2px 8px 4px rgba(0,0,0,0.25); display: none;}
+.head .login .user .user_menu li{ width: 100%; text-align: center; margin: 0; padding: 0 10px; box-sizing: border-box; font-size: 16px; line-height: 35px; position: relative; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s;}
+.head .login .user .user_menu li a{ position: absolute; top:0; bottom:0; left:0; right:0;}
+.head .login .user .user_menu li:hover{ background-color: #e5e5e5;}
+.head .login .user .user_menu .bg,
+.head .user_msg .bg{ width: 12px; height: 7px; background: url(../images/user_menu_bg.png) no-repeat; background-size: 12px auto; position: absolute; top:-7px; right:10px;}
+.head .login .user.show{ background: url(../images/icon_up.png) no-repeat right center; background-size: 15px;}
+.head .login .user.show .user_menu{ display: block;}
+
+/*header訊息*/
+.head .user_msg { width: 360px; max-height: 450px; border: 1px solid #cbcbcb; box-sizing: border-box; background-color: #fff; z-index: 99; position: absolute; top:60px; right: 0; box-shadow: 0px 2px 8px 4px rgba(0,0,0,0.25); display: none; }
+.head .message.show ~ .user_msg { display: block;}
+.head .user_msg .bg { right:18px; }
+.fixTop .user_msg { top: 60px; right: 10px; }
+.fixTop .user_msg .bg { right:10px; }
+.head .user_msg .read_all { display: block; padding: 0 10px; text-align: right; font-size: 14px; line-height: 30px; color: #555; }
+.head .user_msg ul { border-top: solid 1px #ddd; }
+.head .user_msg ul li { align-items: center; position: relative; width: 100%; margin: 0; /*padding: 10px 10px 10px 60px;*/ padding: 10px; box-sizing: border-box; background-color: #eee; border-bottom: solid 1px #ddd; }
+.head .user_msg ul li:nth-last-child(1) { border: none; }
+.head .user_msg ul li.read { background-color: #fff;  }
+.head .user_msg ul li a { position: absolute; top: 0; bottom: 0; left: 0; right: 0; }
+.head .user_msg ul p { text-align: left; font-size: 14px; line-height: 21px; }
+.head .user_msg .msg_from_img { position: absolute; top: 10px; left: 10px; width: 40px; height: 40px; }
+.head .user_msg .msg_from_img img { width: 100%; border-radius: 50%; }
+.head .user_msg .time { font-size: 13px; line-height: 1em; text-align: right; color: #999; }
+/*滾動條*/
+.user_msg .mCSB_inside > .mCSB_container { margin-right: 10px; }
+.user_msg .mCSB_scrollTools { width: 10px; }
+.user_msg .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar { background-color: rgba(200,200,200,0.3); }
+.user_msg .mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar, 
+.user_msg .mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar { background-color: rgba(150,150,150,0.5); }
+.user_msg .mCSB_scrollTools .mCSB_draggerRail { background-color: rgba(150,150,150,0.2); }
+
+
+
+/*scroll到一定高度head鎖住*/
+.fullpage.fixTop{ width: 100%; background: rgba(23, 95, 157, 0.95); position: fixed; z-index: 100; top: -50px; transition: all 0.3s;}
+.fullpage.fixTop .head{ height: 50px;}
+.fullpage.fixTop h1{ width: 205px; height: 25px; background: url(../images/logo_white.png) no-repeat; background-size: auto 25px; margin-top: -10px;}
+.fullpage.fixTop .head li{ line-height: 50px; font-size: 16px;}
+.fullpage.fixTop .head li a{ color: #fff;}
+.fullpage.fixTop .head .login{ line-height: 50px; color: #fff;}
+.fullpage.fixTop .head .login a{ color: #fff;}
+.fullpage.fixTop .head .message{ width: 25px; height: 25px; background: url(../images/icon_message_white_02.png) no-repeat; background-size: auto 25px; margin-top: -12px; right: 15px;}
+.fullpage.fixTop .head .message .num { top: -5px; right: -5px; background-color: #2cc6d2; }
+.fullpage.fixTop .head .login .user{ line-height: 50px;}
+.fullpage.fixTop .head .login .user{ background:url(../images/icon_down_white.png) no-repeat right center; background-size: 15px;}
+.fullpage.fixTop .head .login .user.show{ background:url(../images/icon_up_white.png) no-repeat right center; background-size: 15px;}
+
+.fullpage.fixTop.show{ top: 0;}
+.fullpage.fixTop.show .user_menu{ top:50px;}
+
+/*專案選單列到一定高度鎖住*/
+.fullpage.fixTop2{ width: 100%; background: rgba(0, 0, 0, 0.65); position: fixed; z-index: 99; top:-60px; -moz-box-shadow:0 0 5px 0 rgba(0,0,0,0.2); -webkit-box-shadow:0 0 5px 0 rgba(0,0,0,0.2); box-shadow:0 0 5px 0 rgba(0,0,0,0.2); opacity: 0; transition: all 0.3s;}
+.fullpage.fixTop2 ul.prj_menu{ margin-bottom: 0; border: none;}
+.fullpage.fixTop2 ul.prj_menu li{ color: #fff;}
+.fullpage.fixTop2 ul.prj_menu li.on, .fullpage.fixTop2 ul.prj_menu li:hover{color: #f03a61;}
+.fullpage.fixTop2.show{ top:50px; opacity: 1;}
+
+/* footer */
+.footer{ width:1000px; /*padding: 25px 215px 25px 10px;*/ padding: 15px 215px 15px 10px; position: relative; box-sizing: border-box; margin: 0 auto; background:url(../images/logo_f.png) no-repeat center right 10px; background-size: auto 50px;}
+.footer li{ display: inline-block; margin-right: 65px; /*line-height: 45px;*/ line-height: 20px;}
+.footer li:last-child{ margin-right: 0;}
+.footer li a{ color: #1b1b1b; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s;}
+.footer li:hover a{ color: #5877b8;}
+.footer p{color: #434343; font-size: 13px;}
+.footer span{ margin:0 15px}
+.footer p a{ color: #434343;}
+
+/*HOW IT WORK*/
+.work_how{ width: 1000px; padding: 55px 10px 55px 500px; box-sizing: border-box; position: relative; background: url(../images/work_how_bg.png) no-repeat center left 55px; margin: 0 auto;}
+.work_how li{ position: relative; margin-bottom: 36px;}
+.work_how li:last-child{ margin-bottom: 0;}
+.work_how li a{ width: 100%; height: 100%; display: block; position: absolute; top:0; left:0;}
+.work_how .txt{ float: left;}
+.work_how p{ color: #707070; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s;}
+.work_how .title{ color: #313131; font-weight: bold; font-size: 24px; line-height: 30px;}
+
+.work_how .icon_work1{ width: 55px; height: 55px; background:url(../images/icon_work1.png) no-repeat; background-color: #cf1a7d; float: left; margin-right: 20px; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s;}
+.work_how .icon_work2{ width: 55px; height: 55px; background:url(../images/icon_work2.png) no-repeat; background-color: #2cc6d2; float: left; margin-right: 20px; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s;}
+.work_how .icon_work3{ width: 55px; height: 55px; background:url(../images/icon_work3.png) no-repeat; background-color: #8c83b8; float: left; margin-right: 20px; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s;}
+.work_how li:hover .icon_work1{ background-color: #e11d88;}
+.work_how li:hover .icon_work2{ background-color: #2fd1de;}
+.work_how li:hover .icon_work3{ background-color: #988dc9;}
+.work_how li:hover p{ padding-left: 5px;}
+
+/*想要許願嗎*/
+.makeWish{ background: url(../images/makeWish_bg.jpg) no-repeat; background-size: cover; position: relative; height: 200px; overflow: hidden;}
+.makeWish .cover{ width: 100%; height: 100%; background-color: rgba(0, 70, 151, 0.67);}
+.makeWish .txtBox{ width: 1000px; padding: 30px 10px; box-sizing: border-box; margin: 0 auto; text-align: center;}
+.makeWish p{ color: #fff;}
+.makeWish .title{ font-size: 30px; font-weight: bold; margin-bottom: 20px;}
+.makeWish input{ background: none; border: 1px solid #fff; line-height: 40px; color: #fff; font-size: 18px; width: 180px; margin: 20px 0; cursor: pointer; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s;}
+.makeWish input:hover{ background-color: #fff; color: #5282b9;}
+
+
+/*加LINE好友*/
+.LineBox { position: fixed; top: 300px; right: 4%; background:#76c642; border-radius: 2px; }
+.LineBox > a { position: absolute; top: 0; bottom: 0; left: 0; right: 0; }
+.LineBox .Line_QR { width: 90px; height: 90px; padding: 5px; background:#fff;  }
+.LineBox .Line_QR img { width: 100%; }
+.LineBox .Line_text { padding: 5px; text-align: center; }
+.LineBox .Line_text p { color: #fff;  }
+.LineBox .Line_text .icon_add { display: inline-block; width: 13px; height: 13px; background: url(../images/icon_add.png) center no-repeat; background-size: 100% auto; }
+.LineBox .Line_text .bigT { font-size: 18px; } 
+
+/*聯絡客服*/
+.customer{ width: 75px; height: 75px; background: url(../images/icon_customer.png) no-repeat center center; background-color: #2cc6d2; border-radius: 99em; position: fixed; right:5%; bottom: 80px; z-index: 99;}
+.customer a{ width: 100%; height: 100%; display: block;}
+
+
+/*POP*/
+.pop_overlay{ position:fixed; top:0; bottom: 0; right: 0; left: 0; min-height:100%; min-width:100%; background-color: rgba(0, 0, 0, 0.8); z-index:1002;}
+.pop_box{ background-color: #fff; width: 1000px; height: auto; padding: 35px 50px; position: fixed; top: 50%; left:50%; transform: translate(-50%, -50%); box-sizing: border-box; border-radius: 3px;z-index:1003; }
+.pop_box a.btn_close{ width: 20px; height: 20px; display: block; background: url(../images/btn_close.png) no-repeat; background-size: 20px auto; position: absolute; right:15px; top:15px;}
+.pop_box .pop_in{ padding-top: 180px; margin-bottom: 30px;}
+.pop_box .pop_in.subject{ background: url(../images/welcom.png) no-repeat top center;}
+.pop_box .pop_in p{ font-size: 18px; line-height: 36px;}
+.pop_in li{  background: url(../images/dot_gr.png) no-repeat left 15px; background-size: 8px; padding-left: 20px; font-size: 18px; line-height: 36px;}
+.pop_in p.note{ font-size: 1rem; margin-bottom: 5px;}
+
+.pop_box .caption{ margin-bottom: 5px;}
+
+.pop_box.small { width: 500px; padding-bottom: 0; }
+.pop_box .pop_article { padding:20px 0; margin-bottom: 0;}
+.pop_box .pop_article h2 { margin-bottom: 25px; font-size: 2.25rem; line-height: 1em; }
+.pop_box .pop_article h3 { margin-bottom: 20px; font-size: 1.875rem; line-height: 1em; }
+.pop_box input[type="button"].btn_gray1 { width: 165px; height: 48px; font-size: 18px; background: #bbb; }
+.pop_box input[type="button"].btn_gray1:hover {background: #aaa;}
+
+.pop_box .contentBox { margin-bottom: 10px;}
+.pop_box .contentBox input[type="radio"] + label { display: block; }
+
+.pop_box .botM20 { margin-bottom: 20px;}
+
+/*fixed popup too long*/
+.pop_box.mCustomScrollbar { padding: 20px 0; }
+.pop_box.mCustomScrollbar .mCSB_container { margin-right: 0; padding: 0 20px; }
+.pop_box.mCustomScrollbar a.btn_close { top: 0; right: 20px; }
+.pop_box.mCustomScrollbar .mCSB_scrollTools.mCSB_scrollTools_vertical { top: 5px; right: 0px; bottom: 0; }
+
+.pop_box.mCustomScrollbar .pop_article { padding: 0; }
+
+
+/*---------------for 小網---------------*/
+@media screen and (max-width: 603px) {
+
+.web{ display:none;}
+.mobile{ display:block;}
+
+/*頁面設定*/
+body.forFix{ padding-bottom: 100px;}
+body.forDefine{ padding-bottom: 46px;}
+.fullpage{ min-width:inherit;}
+.fullpage_line{ min-width:inherit;}
+.pagesize{ width:100%; margin:0 auto; padding: 0 10px; box-sizing:border-box;}
+.m_topArea{ padding-top: 50px;}
+
+/*header*/
+.head{ width: 100%; height: 50px; position:fixed; padding: 0; z-index: 999; background-color: #fff; -moz-box-shadow:0 0 5px 0 rgba(0,0,0,0.2); -webkit-box-shadow:0 0 5px 0 rgba(0,0,0,0.2); box-shadow:0 0 5px 0 rgba(0,0,0,0.2);}
+.head h1{ width: 179px; height: 22px; background: url(../images/logo.png) no-repeat; background-size: auto 22px;  top:50%; left:50%; margin-left: -90px; margin-top: -10px;}
+.head h1.post{ margin-left: -90px;}
+
+.head .message{ width: 50px; height: 50px; background: url(../images/icon_message_02.png) no-repeat center center; background-size: 25px auto; top:0; right:0; margin-top: 0;}
+.head .message .num { top: 8px; right: 5px; }	
+	
+.head .menu{ width:50px; height:50px; position:absolute; top:0; left:0; background:url(../images/phone/menu_icon.jpg) no-repeat; background-size:50px 50px;}
+.head .open{ width:50px; height:50px; position:absolute; top:0; left:0; background:url(../images/phone/menu_icon.jpg) no-repeat; background-size:50px 50px;}
+.head .close{ width:50px; height:50px; position:absolute; top:0; left:0; background:url(../images/phone/menuC_icon.jpg) no-repeat; background-size:50px 50px;}
+.head .menu_box{ background-color:#fff; -moz-box-shadow:0 5px 5px 0 rgba(0,0,0,0.2); -webkit-box-shadow:0 5px 5px 0 rgba(0,0,0,0.2); box-shadow:0 5px 5px 0 rgba(0,0,0,0.2); position:absolute; top:49px; left:0; width:100%; display:none; z-index: 500;}
+.head .menu_box li{ border-bottom:1px solid rgba(255, 255, 255, 0.3); position:relative; background-color: #a9a9a9; padding:10px;}
+.head .menu_box li:last-child{ border-bottom:none;}
+.head .menu_box li p{ color: #fff;}
+.head .menu_box li a{ position:absolute; top:0; bottom:0; left:0; right:0;}
+ 
+.head li{ display: inherit; margin-right: 0;}
+
+.head .menu_box .user{ height: 30px; margin-bottom: 10px;}
+.head .menu_box .p_photo{ width: 30px; height: 30px; border-radius: 99em; overflow: hidden; margin-right: 10px; background-color: #aaa; display: inline-block; vertical-align: middle;}
+.head .menu_box .p_photo img{ width: 100%; height: 100%;}	
+.head .menu_box li ul.user_menu{ width: 80%; margin: 0 auto; background-color: rgba(44, 198, 210, 0.5); border-radius: 20px; margin-bottom: 10px;}
+.head .menu_box li ul.user_menu li{ line-height: 30px; background: none; padding: 5px; color: #fff; font-size: 15px; border-bottom: 1px solid rgba(255, 255, 255, 0.2);}
+.head .menu_box li ul.user_menu li:last-child{ border-bottom: none;}
+
+/*header訊息*/
+.head .user_msg { width: 100%; top: 50px; max-height: calc(100vh - 50px); }
+
+/*專案選單列到一定高度鎖住*/
+.fullpage.fixTop2{ background: rgba(255, 255, 255, 0.96); top:inherit; bottom: 0; z-index: 101; opacity: 1; -moz-box-shadow:-2px -2px 5px 0 rgba(0,0,0,0.2); -webkit-box-shadow:-2px -2px 5px 0 rgba(0,0,0,0.2); box-shadow:-2px -2px 5px 0 rgba(0,0,0,0.2);}
+.fullpage.fixTop2 ul.prj_menu li{ color: #7d7d7d; border-right: 1px solid #c9c9c9;}
+/*.fullpage.fixTop2 ul.prj_menu li.on, .fullpage.fixTop2 ul.prj_menu li:hover{color: #fff;}*/
+.fullpage.fixTop2.show{ top:inherit; bottom: 0;}
+
+/*footer*/
+.footer{ width: 100%; padding: 20px 10px 75px 10px; background-position: center bottom 20px; background-size: auto 40px; text-align: center;}
+.footer li{ margin-right: 10px; line-height: 30px;}
+	
+/*HOW IT WORK*/
+.work_how{ width: 100%; padding: 170px 10px 15px 10px; box-sizing: border-box; position: relative; background: url(../images/work_how_bg.png) no-repeat top 20px center; background-size: auto 130px;; margin: 0 auto;}
+.work_how li, .work_how li:last-child{ margin-bottom: 15px;}
+.work_how .icon_work1, .work_how .icon_work2, .work_how .icon_work3{ width: 40px; height: 40px; background-size: 40px; margin: 0 auto; margin-bottom: 5px; float: none;}
+.work_how .txt {  float: none; text-align: center;}
+.work_how .title{ font-size:20px; line-height: 25px;}
+
+/*想要許願嗎*/
+.makeWish { height: auto; background-position: center center;}
+.makeWish .txtBox{ width: 100%; padding-bottom: 10px;}
+.makeWish .title{ font-size: 25px; margin-bottom: 15px;}
+.makeWish input{ margin: 15px 0;}
+
+
+/*加LINE好友*/
+.LineBox { top: auto; bottom: 110px; /*bottom: 150px;*/ right: 10px; background: none; z-index: 10;}
+.LineBox a { position: static; display: block; width: 50px; height: 50px; background: url(../images/img_login_icon_06.png) center no-repeat; background-size: 100% auto; border-radius: 50%; }
+
+/*聯絡客服*/
+.customer{ width: 50px; height: 50px; background-size: 30px auto; right:10px; bottom: 20px;}	
+
+
+/*pop*/
+.pop_box{ width:90%; top:10px; transform: translate(-50%, 0); padding: 15px;}
+.pop_box a.btn_close{ top: 10px; right: 10px; width: 15px; height: 15px; background-size: 15px auto;}
+.pop_box .pop_in{ padding-top: 80px; margin-bottom: 0;}
+.pop_box .pop_in.subject{ background-size: 80px auto;}
+.pop_box .pop_in p{ font-size: 16px; line-height: 25px;}
+.pop_in li{ font-size: 16px; line-height: 25px; background-position: left 8px;}
+	
+.pop_box .btn_set{ padding: 10px 0;}
+.pop_box .btn_set input[type="button"].btn_org1{ height: 35px; width: 100%;}
+	
+.pop_box.small { width: 90%; }
+.pop_box .pop_article { padding:20px 0;}
+.pop_box .pop_article h2 { margin-bottom: 20px; font-size: 1.5rem; }
+.pop_box input[type="button"].btn_gray1 { width: 100%; height: 35px; margin-bottom: 10px; }
+
+}

@@ -46,7 +46,12 @@ def main():
 
 
 def doLogin(driver):
-    driver.get("https://www.dreamplayer.tw/DreamPlayer/login.do")
+    driver.get("https://www.dreamplayer.tw")
+    
+    elem = driver.find_element_by_class_name("sc-dliRfk")
+    elem.click()
+    time.sleep(2)
+    
     elem = driver.find_element_by_name("email")
 #     print(elem.get_attribute('innerHTML'))
 #     print(elem.get_attribute('outerHTML'))
@@ -54,7 +59,7 @@ def doLogin(driver):
     elem.clear()
     time.sleep(1)
     elem.send_keys("rswin0050@gmail.com")
-    elem = driver.find_element_by_name("pwd")
+    elem = driver.find_element_by_name("password")
     elem.clear()
     elem.send_keys(os.environ["RSWIN0050_PASSWD"])
     elem.send_keys(Keys.RETURN)
@@ -65,11 +70,9 @@ def fetchTopicList(driver):
     
     retList = []
     # 溫國信文章列表
-    driver.get("https://www.dreamplayer.tw/DreamPlayer/product.do?id=20191228105151825691")
+    driver.get("https://www.dreamplayer.tw/projects/intro/102/subscription")
 
     pageDownToButtom(driver)
-    
-    print(driver.page_source)
     
     with open("topicList.html", "w", encoding="utf-8") as f:
         f.write(driver.page_source)
@@ -90,7 +93,7 @@ def pageDownToButtom(driver):
     for i in range(3):
         for j in range(8):
             body.send_keys(Keys.PAGE_DOWN)
-        time.sleep(3)
+        time.sleep(2)
         
     # 目前先這樣 hard code 次數，理想上是判斷往下後沒有新文章後再停止
 
