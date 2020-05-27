@@ -18,8 +18,16 @@ def fetch():
     
     doLogin(driver)
     
+    print("wait 10")
+    time.sleep(10)
+    
+    driver.get('https://www.dreamplayer.tw/projects/intro/102/intro')
+    
+    time.sleep(3)
+    
     driver.get("https://www.dreamplayer.tw/projects/102/articles/7343")
-    pageDownToButtom()
+    time.sleep(5)
+    pageDownToButtom(driver)
     with open("7343.html", "w", encoding="utf-8") as f:
         f.write(driver.page_source)    
             
@@ -30,10 +38,13 @@ def parse():
     with open("7343.html", encoding="utf-8") as f:
         soup = BeautifulSoup(f.read(), "html.parser")
 
-    elem = soup.find_all("div", {"class": "cAecGH"})
+    elem = soup.find("div", {"class": "cAecGH"})
     
-    print(len(elem))
-    print(elem[0])
+#     print(elem.prettify())
+    
+    with open("7343pure.html", "w", encoding="utf-8") as f:
+        print(str(elem))
+        f.write(str(elem))
     
 
 def doLogin(driver):
@@ -49,8 +60,13 @@ def doLogin(driver):
     elem.send_keys("rswin0050@gmail.com")
     elem = driver.find_element_by_name("password")
     elem.clear()
+    time.sleep(1)
     elem.send_keys(os.environ["RSWIN0050_PASSWD"])
-    elem.send_keys(Keys.RETURN)
+
+#     elem.send_keys(Keys.RETURN)
+    elem = driver.find_element_by_class_name("sc-hEsumM")
+    elem.click()
+    print("login end")
     
     
 def pageDownToButtom(driver):
@@ -63,6 +79,6 @@ def pageDownToButtom(driver):
     
 
 if __name__ == "__main__":
-    fetch()
-#     parse()
+#     fetch()
+    parse()
 
