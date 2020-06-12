@@ -17,5 +17,6 @@ end =  datetime.datetime.now()
 
 # stock_yf = yf.download('1101.TW', start, end)
 stock_yf = yf.download('6026.TWO', start, end)
+# stock_yf = yf.download('4205.TWO', start, end)
 print(stock_yf)
 
