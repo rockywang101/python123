@@ -3,6 +3,7 @@ Created on 2018年3月29日
 @author: rocky.wang
 '''
 from datetime import datetime
+import time
 
 now = datetime.now()
 
@@ -16,5 +17,11 @@ print(now.hour)
 print(now.minute)
 print(now.second)
 print(now.microsecond)
+
+
+# get timestamp
+now = time.time()
+print(now)
+
 
 
