@@ -12,6 +12,14 @@ Unable to find a matching set of capabilities
 
 so i change to using Chrome
 
+我在 windows 的 Path 裡有多設定一個 C:\selenium_driver
+
+see your chrome version
+chrome://settings/help
+
+and download one match your version
+https://chromedriver.chromium.org/downloads
+
 Created on 2018年4月20日
 @author: rocky.wang
 '''
@@ -31,3 +39,5 @@ elem.send_keys(Keys.RETURN)
 assert "No results found." not in driver.page_source
 driver.close()
 driver.quit()
+
+print('comp')

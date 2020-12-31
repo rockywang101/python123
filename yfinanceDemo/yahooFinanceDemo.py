@@ -5,14 +5,16 @@ Created on 2020年5月5日
 '''
 import requests
 from bs4 import BeautifulSoup
-stockId = "4205"
-url = f"https://finance.yahoo.com/quote/{stockId}.TWO/history?p={stockId}.TWO&.tsrc=fin-srch"
+stockId = "2884"
+#url = f"https://finance.yahoo.com/quote/{stockId}.TW/history?p={stockId}.TW&.tsrc=fin-srch"
+
+url = f'https://finance.yahoo.com/quote/{stockId}.TW/'
 
 r = requests.get(url)
 
-with open("4205.html", "w", encoding="utf-8") as f:
+with open(f"yahoo123.html", "w", encoding="utf-8") as f:
     f.write(r.text)
 
 soup = BeautifulSoup(r.text, "html.parser")
-elem = soup.find("span", {"class": "Trsdu(0.3s)"})
-print(elem)
+price = soup.find('span', {'data-reactid': '14'}).text
+print(price)

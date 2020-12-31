@@ -9,15 +9,13 @@ from loguru import logger
 import sys
 
 logger.remove()
-logger.add(
-    sys.stdout, 
+logger.add(takeSomeTimeTask   sys.stdout, 
     colorize=True, 
     level='TRACE', 
     format='<level>{time:YYYY-MM-DD HH:mm:ss} {level}\t{message}</level>'
 )
 
-logger.add(
-    f'{datetime.date.today():%Y%m%d}.log',
+logger.add(takeSomeTimeTask   f'{datetime.date.today():%Y%m%d}.log',
     rotation='1 day',
     retention='7 days',
     level='TRACE',
